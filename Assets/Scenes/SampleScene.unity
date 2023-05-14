@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 189304125}
+  planeSelf: {fileID: 189304125}
 --- !u!1 &261694704
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 261694704}
+  planeSelf: {fileID: 261694704}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 751463953}
+  planeSelf: {fileID: 751463953}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 1231342789}
+  planeSelf: {fileID: 1231342789}
 --- !u!1 &1560309053
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 1560309053}
+  planeSelf: {fileID: 1560309053}
 --- !u!1 &1610315219
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeParent: {fileID: 1675774783}
+  planeSelf: {fileID: 1675774783}
 --- !u!1 &2039870882
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,8 +785,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground:
-  - {fileID: 9075080716651327313, guid: 099c530aaab2c9449a304ed81a62f2bf, type: 3}
-  - {fileID: 2523890012706384661, guid: 1dda5773873faf94ea9da4c9bc9a4667, type: 3}
+  - {fileID: 6184122400318029335, guid: f56126693f145db43af49622e14b8c5d, type: 3}
+  - {fileID: 4371836213281421299, guid: 0e56c340206ea4a4f871406e47d71702, type: 3}
   planeController:
   - {fileID: 1231342789}
   - {fileID: 751463953}

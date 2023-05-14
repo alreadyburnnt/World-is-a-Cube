@@ -5,6 +5,7 @@ using UnityEngine;
 public class planeController : MonoBehaviour
 {
     public GameObject planeParent;
+    public GameObject planeSelf;
     Vector3 planePosOffset;
     Vector3 planeRotOffset;
     Quaternion planeQuat;
@@ -26,14 +27,29 @@ public class planeController : MonoBehaviour
         StartCoroutine(planeGenEnum());
     }
 
+    public void fixCoor(){
+        for(int i=0;i<49;i++){
+            this.transform.GetChild(i).GetChild(0).position += this.transform.GetChild(i).position;
+            this.transform.GetChild(i).position = new Vector3(0, 0, 0);
+        }
+    }
+
+    public void rotate(int XY, int PN, int num){
+        for(int i=0;i<49;i++){
+            transform.GetChild(i).gameObject.GetComponent<groundController>().rotate(XY, PN, num);
+        }
+    }
+
     IEnumerator planeGenEnum(){
+        int cnt = 0;
         for(int i=0;i<=12;i++){
             for(int j=0;j<7;j++){
                 if(i-j>6 || j>6 || i-j<0 || j<0) continue;
-                Debug.Log("(" + i + ", " + (i-j) + ")");
                 Instantiate(ground[groundType[j, i-j]], planePosOffset + planeGenOffset[0]*(j*2-6) + planeGenOffset[1]*((i-j)*2-6), planeQuat, planeParent.transform);
+                planeSelf.transform.GetChild(cnt++).gameObject.GetComponent<groundController>().setCoor(j, i-j);
                 yield return new WaitForSeconds(0.05f);
             }
         }
+        fixCoor();
     }
 }

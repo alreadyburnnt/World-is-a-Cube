@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class cubeController : MonoBehaviour
 {
-    public GameObject[] ground = new GameObject[2];
     int[,,] groundType = new int[6, 7, 7];
-    Vector3[] planePosOffset = new Vector3[6]{ new Vector3(0, 6, 0), new Vector3(6, 0, 0), new Vector3(0, 0, 6), new Vector3(-6, 0, 0), new Vector3(0, 0, -6), new Vector3(0, -6, 0) };
+    Vector3[] planePosOffset = new Vector3[6]{ new Vector3(0, 5, 0), new Vector3(5, 0, 0), new Vector3(0, 0, 5), new Vector3(-5, 0, 0), new Vector3(0, 0, -5), new Vector3(0, -5, 0) };
     Vector3[] planeRotOffset = new Vector3[6]{ new Vector3(-90, 0, 0), new Vector3(0, 90, 0), new Vector3(0, 0, 0), new Vector3(0, -90, 0), new Vector3(0, 180, 0), new Vector3(90, 0, 0) };
     Vector3[,] planeGenOffset = new Vector3[2, 6]{ { new Vector3(-1, 0, 0), new Vector3(0, 0, -1), new Vector3(0, -1, 0), new Vector3(0, 0, -1), new Vector3(0, -1, 0), new Vector3(0, 0, -1) }, 
     { new Vector3(0, 0, -1), new Vector3(0, -1, 0), new Vector3(-1, 0, 0), new Vector3(0, -1, 0), new Vector3(-1, 0, 0), new Vector3(-1, 0, 0) } };
 
+    public GameObject[] ground = new GameObject[2];
     public GameObject[] planeController = new GameObject[6];
 
     void Awake()
@@ -32,6 +32,15 @@ public class cubeController : MonoBehaviour
         StartCoroutine(mainPlaneGen());
     }
 
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.A)){
+            planeController[1].GetComponent<planeController>().rotate(1, 0, 1);
+            planeController[2].GetComponent<planeController>().rotate(0, 0, 1);
+            planeController[3].GetComponent<planeController>().rotate(1, 0, 1);
+            planeController[4].GetComponent<planeController>().rotate(0, 0, 1);
+        }
+    }
+
     IEnumerator mainPlaneGen(){
         yield return new WaitForSeconds(1.0f);
         for(int i=0;i<6;i++){
@@ -39,5 +48,6 @@ public class cubeController : MonoBehaviour
             planeController[i].GetComponent<planeController>().planeGen();
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(3.0f);
     }
 }
